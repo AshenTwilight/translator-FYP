@@ -4,7 +4,7 @@ import requests
 def translate(text, target_language):
     try:
         response = requests.post(
-            "http://127.0.0.1:2002/translate/",
+            "http://127.0.0.1:8000/translate/",
             json={"text": text, "target_language": target_language}
         )
 
