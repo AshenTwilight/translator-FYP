@@ -134,6 +134,25 @@ You can test the FastAPI endpoint using tools like `curl` or Postman. Here's how
     }
     ```
 
+## Getting a Google Gemini API Key
+To use the Google Gemini API, you'll need an API key. Here's how to get one:
+
+1. **Sign in to Google AI Studio:**
+    - Go to the Google AI Studio website and sign in with your Google account.
+
+2. **Create a New Project or Select an Existing One:**
+    - If you don't have a project, create a new one. If you already have one, select it from the list.
+
+3. **Navigate to the Credentials Section:**
+    - In the left menu, select "APIs & Services" and then "Credentials".
+
+4. **Create a New API Key:**
+    - Click on "Create credentials" and select "API key".
+    - Copy the generated API key and keep it secure.
+
+5. **Add the API Key to Your Project:**
+    - Add the API key to your `.env` file as shown in the Prerequisites section.
+
 ## API Endpoint
 ### `/translate/`
 - **Method:** POST
@@ -155,4 +174,4 @@ You can test the FastAPI endpoint using tools like `curl` or Postman. Here's how
 Feel free to fork the repository and submit pull requests. For major changes, please open an issue to discuss what you would like to change.
 
 ## License
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
