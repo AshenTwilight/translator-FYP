@@ -74,6 +74,66 @@ Supervisor can be used to manage both the FastAPI server and the Gradio interfac
     sudo supervisorctl start all
     ```
 
+## Docker Setup
+You can also run LinguaFlash using Docker. Here's how:
+
+1. **Build the Docker image:**
+    ```bash
+    docker build -t linguaflash .
+    ```
+
+2. **Run the Docker container:**
+    ```bash
+    docker run -d -p 80:80 -p 7860:7860 linguaflash
+    ```
+
+### Dockerfile
+Here is the content of the Dockerfile:
+
+```dockerfile
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the current directory contents into the container
+COPY . /app
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Make port 80 and 7860 available to the world outside this container
+EXPOSE 80
+EXPOSE 7860
+
+# Copy the supervisor configuration file
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Start supervisord 
+CMD ["supervisord"]
+```
+
+## Testing the FastAPI Endpoint
+You can test the FastAPI endpoint using tools like `curl` or Postman. Here's how you can do it using `curl`:
+
+1. **Ensure the FastAPI server is running on port 8000:**
+    ```bash
+    uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    ```
+
+2. **Send a POST request to the `/translate/` endpoint:**
+    ```bash
+    curl -X POST "http://127.0.0.1:8000/translate/" -H "Content-Type: application/json" -d '{"text": "Hello, world!", "target_language": "es"}'
+    ```
+
+3. **Expected Response:**
+    ```json
+    {
+        "translation": "¡Hola, mundo!"
+    }
+    ```
+
 ## API Endpoint
 ### `/translate/`
 - **Method:** POST
