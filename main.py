@@ -29,7 +29,7 @@ async def translate_text(request: TranslationRequest):
             "target_language": request.target_language
         }
 
-        response = model.generate_content(f"Translate '{request.text}' to {request.target_language} YOU MUST ONLY TYPE THE TRANSLATION if no translation available, type the closest indirect translation and with newline write: Note: this is a closest indirect ")
+        response = model.generate_content(f"Translate '{request.text}' to {request.target_language} YOU MUST ONLY TYPE THE TRANSLATION if no translation available, type the closest indirect translation and with newline write: Note: this is a closest indirect translation")
 
         # Extract translation from the response
         translation = response.text
