@@ -155,4 +155,4 @@ You can test the FastAPI endpoint using tools like `curl` or Postman. Here's how
 Feel free to fork the repository and submit pull requests. For major changes, please open an issue to discuss what you would like to change.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
